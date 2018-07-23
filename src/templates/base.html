@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock title %} | Snap-Cycle</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="header">
+        <!-- <img src='/css/snapcycle.jpg'> -->
+        <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
+        <h1>Snap-Cycle </h1>
+    </div>
+    <list class="topnav" id="navbar">
+        <ul>
+            <li><a class="active" href="/" href="javascript:void(0)">Home</a></li>
+            <li><a href="/location" href="javascript:void(0)">Locations</a></li>
+            <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
+            <li><a href="/aboutus" href="javascript:void(0)">About Us</a></li>
+            <li class="search-container">
+                    <form action="/search">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+            </li>
+        </ul>
+    </list>
+
+
+    <div id="form_wrapper">
+        <img class="sup" src="https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg">
+        <div class="content">
+            {% block body %}
+            {% endblock body %}
+        </div>
+    </div>
+</body>
+</html>
