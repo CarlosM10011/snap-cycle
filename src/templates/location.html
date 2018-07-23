@@ -1,5 +1,30 @@
-﻿{% extends "templates/base.html" %}
-{% block title %}Location{% endblock %}
-{%block body %}
-<h1>Location</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snapcycle</title>
+    <meta charset="utf-8" />
+    <body>
+      <div class="header">
+        <!-- <img src='/css/snapcycle.jpg'> -->
+        <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
+        <h1> Location </h1>
+      </div>
+      <ul class="topnav" id="navbar">
+        <li><a  href="/" href="javascript:void(0)">Home</a></li>
+        <li><a href="/location" href="javascript:void(0)">Locations</a></li>
+        <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
+        <li><a class="active" href="/aboutus" href="javascript:void(0)">About Us</a></li>
+
+
+
+
+        <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </ul>
+  </body>
+</head>
+</html>
