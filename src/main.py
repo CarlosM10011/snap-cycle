@@ -10,7 +10,7 @@ jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(jinja_current_dire
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        search_template = jinja_env.get_template("templates/search.html")
+        search_template = jinja_env.get_template("templates/searchresults.html")
         self.response.out.write(search_template.render())
 
 class LocationHandler(webapp2.RequestHandler):
