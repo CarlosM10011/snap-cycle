@@ -1,8 +1,35 @@
-﻿{% extends "templates/base.html" %}
-{% block title %}About Us{% endblock %}
-{%block body %}
-<h1> About Us </h1>
-<h2> Meet the Creators </h2>
-<h3> Hana </h3>
-<p> Hana is from Minnesota.</p>
-{% endblock %}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <meta charset="utf-8" />
+    <link id="Hana" rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="header">
+    <!-- <img src='/css/snapcycle.jpg'> -->
+    <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
+    <h1>About Us </h1>
+  </div>
+  <ul class="topnav" id="navbar">
+    <li><a  href="/" href="javascript:void(0)">Home</a></li>
+    <li><a href="/location" href="javascript:void(0)">Locations</a></li>
+    <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
+    <li><a class="active" href="/aboutus" href="javascript:void(0)">About Us</a></li>
+
+
+
+
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</ul>
+    <h1> About Us </h1>
+    <h2> Meet the Creators </h2>
+    <h3> Hana </h3>
+    <p> Hana is from Minnesota.</p>
+  </body>
+</html>
