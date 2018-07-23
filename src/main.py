@@ -1,5 +1,4 @@
 #!/bin/env python
-
 import webapp2
 import os
 import jinja2
@@ -18,4 +17,4 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-], debug=False)
+    ], debug=False)
