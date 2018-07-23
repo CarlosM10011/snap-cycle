@@ -19,6 +19,12 @@ class LocationHandler(webapp2.RequestHandler):
         location_template = jinja_env.get_template("templates/location.html")
         self.response.out.write(location_template.render())
 
+class FeedbackHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        feedback_template = jinja_env.get_template("templates/feedback.html")
+        self.response.out.write(feedback_template.render())
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -30,4 +36,5 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/search', SearchHandler),
     ('/location', LocationHandler),
+    ('/feedback', FeedbackHandler),
     ], debug=False)
