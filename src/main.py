@@ -22,7 +22,7 @@ class LocationHandler(webapp2.RequestHandler):
 class ReviewHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        feedback_template = jinja_env.get_template("templates/feedback.html")
+        feedback_template = jinja_env.get_template("templates/reviews.html")
         self.response.out.write(feedback_template.render())
 
 class AboutUsHandler(webapp2.RequestHandler):
