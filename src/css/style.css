@@ -40,14 +40,14 @@ body {
   /* font-size: 28px; */
 }
 
-/* .header {
+.header {
     background-color: #f1f1f1;
     padding: 80px;
     text-align: center;
     font-family: 'Cinzel', serif;
     font-size: 30pt;
     text-shadow: 5px 2px grey;
-} */
+}
 
 .content{
   height: 300px;
@@ -134,7 +134,6 @@ h2{
   color: white;
 }
 
-<<<<<<< HEAD
 .content{
   padding: 16px;
 }
@@ -159,11 +158,10 @@ input{
 
 #myImage{
     display: block;
-    max-width: 200px;
-    height: 217px;
+    max-width: 350px;
+    height: 350px;
     margin-left: 10px;
     margin-right: 10px;
->>>>>>> 6ae8480b9052b418d55cec906ad312d90055a6f4
 }
 
 .sticky {
