@@ -37,7 +37,7 @@ h2{
   background-color: #283344;
 }
 
-#form_wrapper2 
+#form_wrapper2
 
 .sup{
   max-width: 100%;
@@ -88,6 +88,20 @@ h2{
 #navbar a.active {
   background-color: #4CAF50;
   color: white;
+}
+
+#banner{
+    max-width: 100%;
+    height: auto;
+    left: 0px;
+    right: 0px;
+}
+
+#myImage{
+    max-width: 100%;
+    height: auto;
+    left: 0px;
+    right: 0px;
 }
 
 .content {
