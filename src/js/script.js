@@ -1,11 +1,7 @@
-sticky = 0;
+window.onscroll = function() {myFunction()};
 
-window.onload = function () {
-    
-    let navbar = document.getElementById("navbar");
-   sticky = navbar.offsetTop;
-    window.onscroll = function () { myFunction() };
-}
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset >= sticky) {
