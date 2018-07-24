@@ -1,39 +1,9 @@
-<!doctype html>
-<html>
-<head>
-    <title>Snap-Cycle</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  <div class="header">
-    <!-- <img src='/css/snapcycle.jpg'> -->
-    <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
-    <h1>About Us </h1>
-  </div>
-  <ul class="topnav" id="navbar">
-    <li><a  href="/" href="javascript:void(0)">Home</a></li>
-    <li><a href="/location" href="javascript:void(0)">Locations</a></li>
-    <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
-    <li><a class="active" href="/aboutus" href="javascript:void(0)">About Us</a></li>
-
-
-
-
-    <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-
-</ul>
-
+﻿{% extends "templates/base.html" %}
+{% block title%}About Us{% endblock %}
+{% block body %}
 <h2>Get to know us!</h2>
 <div>
-  <img id="compPerson" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxgqjGgNMCEqg_hkU5bNLmSrDlM4v8TXdtJRZNnVlrQ7opPw9">
-  <p class="us">Hey<br/></p>
+    <img id="compPerson" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxgqjGgNMCEqg_hkU5bNLmSrDlM4v8TXdtJRZNnVlrQ7opPw9">
+    <p class="us">Hey<br /></p>
 </div>
+{% endblock %}

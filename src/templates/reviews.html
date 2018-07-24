@@ -1,55 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Feedback | Snap-Cycle</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  <div class="header">
-    <!-- <img src='/css/snapcycle.jpg'> -->
-    <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
-    <h1>Review</h1>
-  </div>
-    <ul class="topnav" id="navbar">
-      <li><a href="/" href="javascript:void(0)">Home</a></li>
-      <li><a href="/location" href="javascript:void(0)">Locations</a></li>
-      <li><a class="active" href="/reviews" href="javascript:void(0)">Review</a></li>
-      <li><a href="/aboutus" href="javascript:void(0)">About Us</a></li>
-
-      <div class="search-container">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-  </ul>
-    <h2>Write a review!</h2>
-    <form method="post">
-        <span class="reviewer_info" >First name: </span>
-        <input type="text" required name="first_name" /><br />
-        <span class="reviewer_info">Last name:</span><br />
-        <input type="text" required name="last_name" /><br />
-        <span class="reviewer_info">Your e-mail:</span><br />
-        <input type="text" required name="email" /><br />
-        <span class="reviewer_info">On a scale of one to five, how would you rate our site?</span><br />
-        <input type="radio" name="rating" value="1" checked>1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
-        <span class="reviewer_info">How often do you visit our website?</span><br /></span>
-        <select required name="visit_frequency">
-            <option label="Hourly">Hourly</option>
-            <option label="Daily">Daily</option>
-            <option label="Weekly">Weekly</option>
-            <option label="Monthly">Monthly</option>
-            <option label="Annually">Annually</option>
-            <option label="Other">Other</option>
-        </select>
-        <span>Subject: </span><br />
-        <input required name="subject" /><br />
-        <span>Message Body:</span><br />
-        <textarea name="message_body" required></textarea><br />
-        <button>Submit</button>
-    </form>
-</html>
+﻿{% extends "templates/base.html" %}
+{% block title%}Review{% endblock %}
+{% block body %}
+<h2>Write a review!</h2>
+<form method="post">
+    <span class="reviewer_info">First name: </span>
+    <input type="text" required name="first_name" /><br />
+    <span class="reviewer_info">Last name:</span><br />
+    <input type="text" required name="last_name" /><br />
+    <span class="reviewer_info">Your e-mail:</span><br />
+    <input type="text" required name="email" /><br />
+    <span class="reviewer_info">On a scale of one to five, how would you rate our site?</span><br />
+    <input type="radio" name="rating" value="1" checked>1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
+    <span class="reviewer_info">How often do you visit our website?</span><br /></span>
+    <select required name="visit_frequency">
+        <option label="Hourly">Hourly</option>
+        <option label="Daily">Daily</option>
+        <option label="Weekly">Weekly</option>
+        <option label="Monthly">Monthly</option>
+        <option label="Annually">Annually</option>
+        <option label="Other">Other</option>
+    </select>
+    <span>Subject: </span><br />
+    <input required name="subject" /><br />
+    <span>Message Body:</span><br />
+    <textarea name="message_body" required></textarea><br />
+    <button>Submit</button>
+</form>
+{% endblock %}
