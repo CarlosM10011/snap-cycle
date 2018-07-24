@@ -42,9 +42,9 @@ body {
 
 .header {
     background-color: #f1f1f1;
-    padding: 80px;
+    padding: 40px;
     text-align: center;
-    font-family: 'Cinzel', serif;
+    font-family: 'Roboto Condensed', sans-serif;'
     font-size: 30pt;
     text-shadow: 5px 2px grey;
 }
@@ -163,6 +163,20 @@ input{
     margin-left: 10px;
     margin-right: 10px;
 }
+
+
+#Kayley{
+  display: block;
+  max-width:600px;
+  height: 400px;
+  margin-left: 10px;
+
+}
+
+p {
+    font-size: 20px;
+}
+
 
 .sticky {
   position: fixed;
