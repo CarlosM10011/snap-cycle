@@ -2,7 +2,55 @@
 import webapp2
 import os
 import jinja2
-from google.appengine.ext import ndb
+from models import Person, Review
+
+def getPersonObjectByName(first_name, last_name):
+    queryObj = Person.query(Person.lastName == last_name)
+    obj = queryObj.filter(Person.firstName == first_name).get()
+    obj = Person.query(Person.firstName == first_name, Person.lastName == last_name).get()
+    return obj
+
+@ndb.transactional
+def getReviewEntryCount(parent_key):
+    count = WordEntry.query(ancestor=parent_key).count()
+    return count
+
+@ndb.transactional
+def getReviewObject(parent_key):
+    obj = Review.query(ancestor=parent_key).get()
+    return obj
+
+@ndb.transactional
+def putReviewObject(obj):
+    return obj.put()
+
+@ndb.transactional
+def putWordEntryObject(obj):
+    return obj.put()
+
+def getPersonObjectList():
+    return Person.query().fetch()
+
+def renderAllReviews():
+    # this will return a list with all the reviews for jinja to render.
+    finalArray = []
+    # first thing's first: we need a list of people:
+    peopleObjects = getPersonObjectList()
+    # Now we need to load the info from each person:
+    for i, v in enumerate(peopleObjects):
+        reviewObject = getReviewObject(i.key)
+        # Initialize and append a dictionary for each person:
+        finalArray.append({"email": v.email,
+                           "first_name": v.firstName,
+                           "last_name": v.lastName,
+                           "subject": reviewObject.subject,
+                           "date": reviewObject.date,
+                           "rating": reviewObject.rating,
+                           "message": reviewObject.message,
+                           })
+    return finalArray
+
+
 
 jinja_current_directory = os.path.dirname(__file__)
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(jinja_current_directory), extensions=['jinja2.ext.autoescape'], autoescape=True)
