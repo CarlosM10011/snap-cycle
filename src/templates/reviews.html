@@ -7,6 +7,11 @@
     <script src="/js/script.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body{
+      background-image: url("http://annwalls.xyz/wp-content/uploads/2018/03/yellow-background-435.jpg");
+    }
+    </style>
 </head>
 <body>
   <div class="header">
@@ -14,7 +19,7 @@
     <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
     <h1>Review</h1>
   </div>
-    <ul class="topnav" id="navbar">
+    <ul class="topnav" id="navbar" style="margin-top: 0px; margin-bottom: 0px;">
       <li><a href="/" href="javascript:void(0)">Home</a></li>
       <li><a href="/location" href="javascript:void(0)">Locations</a></li>
       <li><a class="active" href="/reviews" href="javascript:void(0)">Review</a></li>
@@ -23,20 +28,79 @@
       <div class="search-container">
       <form action="/action_page.php">
         <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button id="search_button" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </ul>
-    <h2>Write a review!</h2>
-    <form method="post">
-        <span class="reviewer_info" >First name: </span>
-        <input type="text" required name="first_name" /><br />
-        <span class="reviewer_info">Last name:</span><br />
-        <input type="text" required name="last_name" /><br />
-        <span class="reviewer_info">Your e-mail:</span><br />
-        <input type="text" required name="email" /><br />
+    <h3>Write us a quick review!</h3>
+
+    <div class="container">
+    <form action="/action_page.php">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="input" required name="first_name" placeholder="Your name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="input" required name="last_name" placeholder="Your last name..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Rating</label>
+        </div>
+        <div class="col-75">
+          <select id="rating" required name="rating">
+            <option value="default">Select Value</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Visit</label>
+        </div>
+        <div class="col-75">
+          <select id="rating" required name="visit_frequency">
+            <option value="default">Select Value</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="never">Never</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+          <textarea id="subject" name="message_body" placeholder="Write something.." style="height:200px" required></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+    <!-- <form method="post">
+        <span class="reviewer_info" >First name: <input class="reviewer_input" type="text" required name="first_name" style="margin-right: 200px;">
+          Last name: <input class="reviewer_input" type="text" required name="last_name"></span>
+        <span class="reviewer_info">Your e-mail: <input class="reviewer_input" type="text" required name="email" /><br /></span>
         <span class="reviewer_info">On a scale of one to five, how would you rate our site?</span><br />
-        <input type="radio" name="rating" value="1" checked>1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
+        <input class="reviewer_input" type="radio" name="rating" value="1" checked>1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
         <span class="reviewer_info">How often do you visit our website?</span><br /></span>
         <select required name="visit_frequency">
             <option label="Hourly">Hourly</option>
@@ -45,11 +109,11 @@
             <option label="Monthly">Monthly</option>
             <option label="Annually">Annually</option>
             <option label="Other">Other</option>
-        </select>
-        <span>Subject: </span><br />
+        </select><br/>
+        <span>Subject: </span>
         <input required name="subject" /><br />
-        <span>Message Body:</span><br />
+        <span>Message Body:</span>
         <textarea name="message_body" required></textarea><br />
         <button>Submit</button>
-    </form>
+    </form> -->
 </html>

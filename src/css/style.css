@@ -7,6 +7,16 @@ ul {
     width: 100%;
 }
 
+#aboutus{
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
 .parallax {
     /* The image used */
     background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
@@ -37,12 +47,11 @@ ul {
 
 body {
   margin: 0;
-  /* font-size: 28px; */
 }
 
 .header {
     background-color: #f1f1f1;
-    padding: 80px;
+    padding: 20px;
     text-align: center;
     font-family: 'Cinzel', serif;
     font-size: 30pt;
@@ -52,7 +61,6 @@ body {
 .content{
   height: 300px;
   background-color: #ffffff;
-  /* padding: 20px; */
 }
 
 .img{
@@ -86,24 +94,21 @@ body {
   height: 10px;
 }
 
-p{
-  /* font-size: 14pt;
-  color: white;
-  background-color: #283344; */
+#gettoknowus{
+  text-align: center;
+  font-size: 30pt;
+  font-family: serif;
 }
 
-/* h1{
+h3{
   text-align: center;
-  font-size: 50pt;
-  color: black;
-  margin: 0;
-  padding: 0;
-  font-size: 60pt;
-} */
-
+  font-size: 30pt;
+  font-family: serif;
+}
 h2{
   text-align: center;
-  font-size: 50pt;
+  font-size: 30pt;
+  font-family: serif;
   color: black;
   margin: 0;
   padding: 0;
@@ -143,9 +148,11 @@ h2{
   text-align: center;
 }
 
-input{
-
+#zip_box{
+  height:40px;
+  font-size:14pt;
 }
+
 #banner{
     display: flex;
     justify-content: center;
@@ -204,7 +211,7 @@ img{
   height: 100%;
 }
 
-button{
+#search_button{
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
@@ -215,8 +222,70 @@ button{
   cursor: pointer;
 }
 
-button:hover {
+#search_button:hover {
   background: #ccc;
+}
+
+#input{
+  width: 30%;
+  height: 30%;
+}
+
+#input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 100px;
+    display: inline-block;
+    font-size: 12pt;
+}
+
+input[type=submit]  {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+  align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 3px;
+    /* margin-left: 5px; */
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .topnav .search-container {
@@ -259,4 +328,8 @@ button:hover {
   }
   .topnav input[type=text] {
     border: 1px solid #ccc;
+  }
+  .col-25, .col-75, input[type=submit]{
+    width: 100%;
+    margin-top: 0;
   }
