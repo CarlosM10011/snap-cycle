@@ -68,8 +68,10 @@
 
 .container img {vertical-align: middle;}
 
-main {
-    background: #acb5c4;
+.container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     width: 100%;
     padding: 20px;
@@ -83,11 +85,6 @@ p{
   /* font-size: 14pt;
   color: white;
   background-color: #283344; */
-}
-
-h1{
-  text-align: center;
-  font-size: 70pt;
 }
 
 h2{
