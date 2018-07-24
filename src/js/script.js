@@ -1,9 +1,9 @@
 sticky = 0;
 
 window.onload = function () {
-    
+
     let navbar = document.getElementById("navbar");
-   sticky = navbar.offsetTop;
+    sticky = navbar.offsetTop;
     window.onscroll = function () { myFunction() };
 }
 
