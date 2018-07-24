@@ -77,6 +77,10 @@ ul {
     padding: 20px;
 }
 
+.compPerson{
+  height: 10px;
+}
+
 p{
   /* font-size: 14pt;
   color: white;
