@@ -34,7 +34,7 @@ class AboutUsHandler(webapp2.RequestHandler):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        index_template = jinja_env.get_template("templates/inde.html")
+        index_template = jinja_env.get_template("templates/index.html")
         self.response.out.write(index_template.render())
 
 
