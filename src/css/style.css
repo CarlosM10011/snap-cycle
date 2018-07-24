@@ -50,11 +50,11 @@ ul {
   /* padding: 20px; */
 }
 
-.img{
+/* .img{
   max-width: 100%;
-  max-height: 100vh;
+  max-height: 100%;
   margin: auto;
-}
+} */
 
 * {
     box-sizing: border-box;
@@ -68,8 +68,10 @@ ul {
 
 .container img {vertical-align: middle;}
 
-main {
-    background: rgba(0, 0, 0, 0);
+.container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     width: 100%;
     padding: 20px;
@@ -85,14 +87,9 @@ p{
   background-color: #283344; */
 }
 
-h1{
-  text-align: center;
-  font-size: 70pt;
-}
-
 h2{
   text-align: center;
-  font-size: 40pt;
+  font-size: 50pt;
   color: black;
 }
 
