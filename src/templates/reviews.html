@@ -124,4 +124,9 @@
         <textarea name="message_body" required></textarea><br />
         <button>Submit</button>
     </form> -->
+    <h1>What other people are saying:</h1>
+    {% for i in reviews %}
+    <h1>{{ i.first_name }} {{ i.last_name }} on {{ i.date }}</h1>
+    <blockquote><pre>{{ i.message }}</pre></blockquote>
+    {% endfor %}
 </html>
