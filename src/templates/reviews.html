@@ -103,27 +103,6 @@
       </div>
     </form>
   </div>
-    <!-- <form method="post">
-        <span class="reviewer_info" >First name: <input class="reviewer_input" type="text" required name="first_name" style="margin-right: 200px;">
-          Last name: <input class="reviewer_input" type="text" required name="last_name"></span>
-        <span class="reviewer_info">Your e-mail: <input class="reviewer_input" type="text" required name="email" /><br /></span>
-        <span class="reviewer_info">On a scale of one to five, how would you rate our site?</span><br />
-        <input class="reviewer_input" type="radio" name="rating" value="1" checked>1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
-        <span class="reviewer_info">How often do you visit our website?</span><br /></span>
-        <select required name="visit_frequency">
-            <option label="Hourly">Hourly</option>
-            <option label="Daily">Daily</option>
-            <option label="Weekly">Weekly</option>
-            <option label="Monthly">Monthly</option>
-            <option label="Annually">Annually</option>
-            <option label="Other">Other</option>
-        </select><br/>
-        <span>Subject: </span>
-        <input required name="subject" /><br />
-        <span>Message Body:</span>
-        <textarea name="message_body" required></textarea><br />
-        <button>Submit</button>
-    </form> -->
     <h1>What other people are saying:</h1>
     {% for i in reviews %}
     <h1>{{ i.first_name }} {{ i.last_name }} on {{ i.date }}</h1>
