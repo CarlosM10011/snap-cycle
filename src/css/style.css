@@ -51,9 +51,13 @@ body {
 
 .header {
     background-color: #f1f1f1;
+<<<<<<< HEAD
     padding: 20px;
+=======
+    padding: 40px;
+>>>>>>> 08e4b059dab7d882d70194330751dde9900e98e8
     text-align: center;
-    font-family: 'Cinzel', serif;
+    font-family: 'Roboto Condensed', sans-serif;'
     font-size: 30pt;
     text-shadow: 5px 2px grey;
 }
@@ -170,6 +174,20 @@ h2{
     margin-left: 10px;
     margin-right: 10px;
 }
+
+
+#Kayley{
+  display: block;
+  max-width:600px;
+  height: 400px;
+  margin-left: 10px;
+
+}
+
+p {
+    font-size: 20px;
+}
+
 
 .sticky {
   position: fixed;
