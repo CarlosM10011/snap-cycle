@@ -8,8 +8,8 @@ class Person(ndb.Model):
     email = ndb.StringProperty()
 
 class Review(ndb.Model):
-    date = ndb.DateTimeProperty(auto_now=True)
+    date = ndb.DateProperty(auto_now=True)
     rating = ndb.IntegerProperty()
     visitFrequency = ndb.StringProperty()
     subject = ndb.StringProperty()
-    message = ndb.StringProperty()
+    message = ndb.TextProperty()
