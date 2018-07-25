@@ -190,6 +190,19 @@ label {
   font-size: 50pt;
 }
 
+h3{
+  text-align: center;
+  font-size: 30pt;
+  font-family: sans-serif;
+}
+h2{
+  text-align: center;
+  font-size: 30pt;
+  font-family: sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
 
 #navbar {
   overflow: hidden;
@@ -245,10 +258,10 @@ label {
 
 #myImage{
     display: block;
-    max-width: 350px;
-    height: 350px;
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 400px;
+    height: 500px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 

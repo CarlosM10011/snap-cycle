@@ -45,8 +45,8 @@ def renderAllReviews():
         reviewObject = getReviewObject(i.key)
         # Initialize and append a dictionary for each person:
         finalArray.append({"email": i.email,
-                           "first_name": i.firstName,
-                           "last_name": i.lastName,
+                           "first_name": i.firstName.capitalize(),
+                           "last_name": i.lastName.capitalize(),
                            "subject": reviewObject.subject,
                            "date": reviewObject.date,
                            "rating": reviewObject.rating,
@@ -92,7 +92,7 @@ class ReviewHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         review_template = jinja_env.get_template("templates/reviews.html")
-        self.response.out.write(review_template.render())
+        self.response.out.write(review_template.render(reviews=renderAllReviews()))
     def post(self):
         person = None
         if self.request.get("email").lower()!="":
@@ -116,7 +116,7 @@ class ReviewHandler(webapp2.RequestHandler):
             pass
         review_template = jinja_env.get_template("templates/reviews.html")
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.out.write(review_template.render(renderAllReviews=renderAllReviews()))
+        self.response.out.write(review_template.render(reviews=renderAllReviews()))
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
