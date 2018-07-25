@@ -64,17 +64,13 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.out.write(search_template.render())
 
     def post(self):
-        # self.response.headers['Content-Type'] = 'text/html'
+        self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/searchresults.html")
         search = self.request.get('search')
 
         user_input = {
-            # 'noun1': "<span>" + noun1 + "</span>"
-            'search': search,
+            'search': search.upper(),
         }
-
-        # user1 = MadLibs_Data(noun1=noun1, noun2=noun2, adj=adj, verb=verb, color=user_color) #No positional arguments in Model. They user key-word arguments
-        # user1.put()
         self.response.out.write(search_template.render(user_input))
 
 class LocationHandler(webapp2.RequestHandler):
@@ -82,6 +78,15 @@ class LocationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         location_template = jinja_env.get_template("templates/location.html")
         self.response.out.write(location_template.render())
+
+    def post(self):
+        search_template = jinja_env.get_template("templates/location.html")
+        go = self.request.get('go')
+
+        user_input = {
+            'go': go,
+        }
+        self.response.out.write(search_template.render(user_input))
 
 class ReviewHandler(webapp2.RequestHandler):
     def get(self):
