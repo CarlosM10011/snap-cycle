@@ -45,8 +45,8 @@ def renderAllReviews():
         reviewObject = getReviewObject(i.key)
         # Initialize and append a dictionary for each person:
         finalArray.append({"email": i.email,
-                           "first_name": i.firstName,
-                           "last_name": i.lastName,
+                           "first_name": i.firstName.capitalize(),
+                           "last_name": i.lastName.capitalize(),
                            "subject": reviewObject.subject,
                            "date": reviewObject.date,
                            "rating": reviewObject.rating,
