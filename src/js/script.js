@@ -12,7 +12,7 @@ window.onload = function () {
     window.onscroll = function () { myFunction() };
 
     zipCode = document.getElementById('zip_box');
-    zipCode.onclick = myMap;
+    // zipCode.onclick = myMap;
 
     myMap();
 
