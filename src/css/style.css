@@ -137,7 +137,7 @@ label {
 }
 
 .content{
-  padding: 16px;
+  padding: 20%;
 }
 
 .zip{
@@ -215,7 +215,6 @@ label {
   background-color: #4CAF50;
   color: white;
 }
-
 #zip_box{
   /* display: flex; */
   height:40px;
