@@ -120,12 +120,12 @@ body {
 h3{
   text-align: center;
   font-size: 30pt;
-  font-family: serif;
+  font-family: sans-serif;
 }
 h2{
   text-align: center;
   font-size: 30pt;
-  font-family: serif;
+  font-family: sans-serif;
   color: black;
   margin: 0;
   padding: 0;
@@ -182,10 +182,10 @@ h2{
 
 #myImage{
     display: block;
-    max-width: 350px;
-    height: 350px;
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 400px;
+    height: 500px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 
