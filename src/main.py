@@ -88,7 +88,7 @@ class ReviewHandler(webapp2.RequestHandler):
         if not getReviewObject(person.key): # person hasn't submitted a review.
             review = Review(parent=person.key)
             review.rating = int(self.request.get("rating").lower())
-            review.subject = self.request.get("subject")
+            review.subject = "no subject"
             review.message = self.request.get("message_body")
             review.visitFrequency = self.request.get("visit_frequency")
             putReviewObject(review)
