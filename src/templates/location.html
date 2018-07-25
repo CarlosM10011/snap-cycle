@@ -1,49 +1,43 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <title>Snap-Cycle</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtJZzxdvPjrj_gwbU8d8kPDI9OI5HUO9c&callback=initMap"></script>
+
+        <script src="/js/script.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    body{
-      background-color: #e6ebf4;
-    }
+        body {
+            background-color: #e6ebf4;
+        }
     </style>
 </head>
 <body>
-  <div class="header">
-    <h1 id="location" >Locations</h1>
-  </div>
-  <ul class="topnav" id="navbar" style="margin-top: 0px; margin-bottom: 0px;">
-    <li><a href="/" href="javascript:void(0)">Home</a></li>
-    <li><a class="active" href="/location" href="javascript:void(0)">Locations</a></li>
-    <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
-    <li><a href="/aboutus" href="javascript:void(0)">About Us</a></li>
+    <div class="header">
+        <h1 id="location">Locations</h1>
+    </div>
+    <ul class="topnav" id="navbar" style="margin-top: 0px; margin-bottom: 0px;">
+        <li><a href="/" href="javascript:void(0)">Home</a></li>
+        <li><a class="active" href="/location" href="javascript:void(0)">Locations</a></li>
+        <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
+        <li><a href="/aboutus" href="javascript:void(0)">About Us</a></li>
 
-    <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
 
-</ul>
+    </ul>
 
-<div>
-  <p class="zip"> Enter Zip Code: <input id="zip_box" /><br/></p>
-</div>
+    <div>
+        <p class="zip"> Enter Zip Code: <input id="zip_box" /><br /></p>
+    </div>
 
-<div id="map" style="width:400px;height:400px;background:yellow"></div>
-
-<script>
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+    <div id="map" style="width:400px;height:400px;background:yellow"></div>
+</body>
+</html>
