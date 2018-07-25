@@ -76,22 +76,25 @@ class ReviewHandler(webapp2.RequestHandler):
         self.response.out.write(review_template.render())
     def post(self):
         person = None
-        if not getPersonObjectByEmail(self.request.get("email").lower()):
-            person = Person()
-            person.firstName = self.request.get("first_name").lower()
-            person.lastName = self.request.get("last_name").lower()
-            person.email = self.request.get("email").lower()
-            person.put()
+        if self.request.get("email").lower()!="":
+            if not getPersonObjectByEmail(self.request.get("email").lower()):
+                person = Person()
+                person.firstName = self.request.get("first_name").lower()
+                person.lastName = self.request.get("last_name").lower()
+                person.email = self.request.get("email").lower()
+                person.put()
+            else:
+                person = getPersonObjectByEmail(self.request.get("email").lower())
+            review = None
+            if not getReviewObject(person.key): # person hasn't submitted a review.
+                review = Review(parent=person.key)
+                review.rating = int(self.request.get("rating").lower())
+                review.subject = "no subject"
+                review.message = self.request.get("message_body")
+                review.visitFrequency = self.request.get("visit_frequency")
+                putReviewObject(review)
         else:
-            person = getPersonObject(self.request.get("email").lower())
-        review = None
-        if not getReviewObject(person.key): # person hasn't submitted a review.
-            review = Review(parent=person.key)
-            review.rating = int(self.request.get("rating").lower())
-            review.subject = "no subject"
-            review.message = self.request.get("message_body")
-            review.visitFrequency = self.request.get("visit_frequency")
-            putReviewObject(review)
+            pass
         review_template = jinja_env.get_template("templates/reviews.html")
         self.response.headers['Content-Type'] = 'text/html'
         self.response.out.write(review_template.render(renderAllReviews=renderAllReviews()))
