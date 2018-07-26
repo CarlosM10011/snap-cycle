@@ -4,6 +4,14 @@ import os
 import jinja2
 from models import Person, Review, ndb, Address
 
+# class UserSearch(ndb.Model):
+#     term = ndb.StringProperty(required=False)
+
+    # def increment(self):
+    #     self.count += 1
+    #     return self.count
+# user = UserSearch()
+
 def getAddressObject(address_1, address_2, city, state, zip):
     queryObj1 = None
     obj = None
@@ -75,24 +83,78 @@ jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(jinja_current_dire
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
+        print("Welcome")
         # self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/index.html")
         self.response.out.write(search_template.render())
+
     def post(self):
+        print("HEY")
         self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/searchresults.html")
-        search = self.request.get('search')
-        user_input = {
-            'search': search.upper(),
+        search_term = self.request.get('search')
+
+        search_term = search_term.lower()
+        search = search_term.split(" ")
+        word = ''
+
+        for i in search:
+            word += i
+
+        print(word)
+
+        ret = {
+            "search": search_term.upper(),
         }
-        self.response.out.write(search_template.render(user_input))
+
+        def get_compost_words():
+            with open('compost.txt') as f:
+                content = ' '.join(f.readlines()).replace('\n','').replace('\r','').lower()
+                return content.split(' ')
+
+        def get_recycling_words():
+            with open('recycling.txt') as f:
+                content = ' '.join(f.readlines()).replace('\n','').replace('\r','').lower()
+                return content.split(' ')
+
+        def get_ewaste_words():
+            with open('e_waste.txt') as f:
+                content = ' '.join(f.readlines()).replace('\n','').replace('\r','').lower()
+                return content.split(' ')
+
+        compost = get_compost_words()
+        recycling = get_recycling_words()
+        ewaste = get_ewaste_words()
+
+        # for i in compost:
+        #     i.lower()
+        # for i in recycling:
+        #     i.lower()
+        # for i in ewaste:
+        #     i.lower()
+
+        print(word)
+        if word in compost:
+            ret['pic'] = "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f7e0a66cba220611e4b926593b3b795f&auto=format&fit=crop&w=800&q=60"
+            ret['word'] = "Recycling: The item you have inputted is Recyclable. By correctly disposing of the product, you are making a difference in our ecosystem. Recycling is the first step towards a better world. To locate local Recycling sites, please go to our 'Location' page and enter your zip code."
+        elif word in recycling:
+            ret['pic'] = "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d74cf1088e47e1007c800942ec97a31&auto=format&fit=crop&w=800&q=60"
+            ret['word'] = "Compost: The item you have inputted is Compostable. This means that if you are growing your own garden you can dispose of it by leaving it slightly buried with your plants. Even if you lack a garden you could leave it on your yard and the grass will be able to absorb nutrients from it. If your would like to locate local Compost sites, please go to our 'Location' page and enter your zip code."
+        elif word in ewaste:
+            ret['pic'] = "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9028dd6de93ea441c4fa84efb852bcf9&auto=format&fit=crop&w=800&q=60"
+            ret['word'] = "E Waste: The item you have inputted is a Recyclable Electronic. Dispose of this head to your local electronic recycling facility and they will be able to reuse your item. Do not throw this item in the trash since this could be bad for waste disposal system. To locate local E Waste sites, please go to our 'Location' page and enter your zip code."
+        else:
+            ret['pic'] = "https://images.unsplash.com/photo-1493852303730-955ff798ba12?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0a3aa0e3ad08c0fb0691593c7c74b71&auto=format&fit=crop&w=800&q=60"
+            ret['word'] = "Error: The item you have inputted could not be found in our database. Please ensure that you have used correct spelling. Contact us and we will include this item in our database. "
+
+        self.response.out.write(search_template.render(ret))
 
 class LocationHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         location_template = jinja_env.get_template("templates/location.html")
         self.response.out.write(location_template.render())
-        
+
 class AddLocationHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
