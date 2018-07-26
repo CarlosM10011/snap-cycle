@@ -147,9 +147,15 @@ function searchCallback(results, status){
     var marker = new google.maps.Marker({'position': position, 'map': theMap});
     markers.push(marker);
   }
+  // google.maps.event.addListener(marker, 'click', infoWindow);
+  // console.log("marker clicked");
   // var elt = document.getElementById("map");
   console.log(markers);
 }
+//
+// function infoWindow(self){
+//   console.log("inside infoWindow");
+// }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
