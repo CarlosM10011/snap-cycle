@@ -4,6 +4,7 @@ var theMap;
 var markers=[];
 var theLat;
 var theLng;
+var infoWindow;
 
 window.onload = function () {
 
@@ -75,6 +76,8 @@ function myMap() {
   console.log(elt);
   theMap = new google.maps.Map(elt,mapProp);
 
+  infoWindow = new google.maps.InfoWindow();
+
 }
 
 function onGoButton(self){
@@ -143,19 +146,28 @@ function searchCallback(results, status){
   for(let i = 0; i < results.length; i++){
     var lat = results[i].geometry.location.lat();
     var lng = results[i].geometry.location.lng();
+    // var placeLoc = results[i]
     var position = {'lat': lat, 'lng': lng};
     var marker = new google.maps.Marker({'position': position, 'map': theMap});
     markers.push(marker);
+    var address = results[i].formatted_address;
+    var name = "<b>" + results[i].name + "</b>" + "</br>" + address;
+    marker.addListener('click', makeMarkerClickFunction(theMap, name, marker));
+    console.log("marker clicked");
   }
-  // google.maps.event.addListener(marker, 'click', infoWindow);
-  // console.log("marker clicked");
+
   // var elt = document.getElementById("map");
-  console.log(markers);
+  // console.log(markers);
 }
 //
-// function infoWindow(self){
-//   console.log("inside infoWindow");
-// }
+function makeMarkerClickFunction(map, name, obj){
+  console.log("inside infoWindow");
+  function markerClickHelper(){
+    infoWindow.setContent(name);
+    infoWindow.open(map, obj);
+  }
+  return markerClickHelper;
+}
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);

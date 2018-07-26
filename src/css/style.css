@@ -71,10 +71,10 @@ label {
 
 .parallax {
     /* The image used */
-    background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
+    background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
     /* Set a specific height */
-    min-height: 800px;
+    min-height: 600px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -85,10 +85,24 @@ label {
 
 .parallax2 {
     /* The image used */
-    background-image: url("https://www.hydroblast.co.uk/wp-content/uploads/2014/06/environmently-friendly-banner.jpg");
+    background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
 
     /* Set a specific height */
-    min-height: 800px;
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+    background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
+
+    /* Set a specific height */
+    min-height: 200px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -109,7 +123,7 @@ label {
 
 .content{
   /* height: 200px; */
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .img{
@@ -132,7 +146,7 @@ label {
     background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     width: 100%;
-    padding: 20px;
+    padding: 40px;
 }
 
 .compPerson{
@@ -140,14 +154,19 @@ label {
 }
 
 .content{
-  padding: 20%;
+  padding: 20px;
+}
+
+.index_paragraph{
+  padding: 0 50px 0 50px;
+  /* background-color: #b5c6e0; */
 }
 
 .zip{
   font-size: 20pt;
   text-align: center;
   float: center;
-  margin-left: 400px;
+  margin-left: 350px;
   max-width: 50%;
 }
 
@@ -159,6 +178,57 @@ label {
 
 .sticky + .content {
   padding-top: 60px;
+}
+
+.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+.heading {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top:10px;
+}
+
+.middle {
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 #aboutus{
@@ -352,6 +422,15 @@ input[type=submit]:hover {
 .topnav .search-container button:hover {
   background: #ccc;
 }
+
+@media (max-width: 400px) {
+    .side, .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+  }
 
 @media screen and (max-width: 600px) {
   .topnav .search-container {
