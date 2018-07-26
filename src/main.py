@@ -92,15 +92,27 @@ class LocationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         location_template = jinja_env.get_template("templates/location.html")
         self.response.out.write(location_template.render())
-
+        
+class AddLocationHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        location_add_template = jinja_env.get_template("templates/addlocation.html")
+        self.response.out.write(location_add_template.render())
     def post(self):
-        search_template = jinja_env.get_template("templates/location.html")
-        go = self.request.get('go')
-
-        user_input = {
-            'go': go,
-        }
-        self.response.out.write(search_template.render(user_input))
+        self.response.headers['Content-Type'] = 'text/html'
+        address = None
+        if not getAddressObject(self.request.get("address1").lower(), self.request.get("address2").lower(), self.request.get("city").lower(), self.request.get("state").lower(), self.request.get("zip")):
+            address = Address()
+            address.address1 = self.request.get("address1").lower()
+            address.address2 = self.request.get("address2").lower()
+            address.city = self.request.get("city").lower()
+            address.state = self.request.get("state").lower()
+            if self.request.get("zip")!="": address.zip = int(self.request.get("zip"))
+            address.put()
+        else:
+            pass
+        location_add_template = jinja_env.get_template("templates/addlocation.html")
+        self.response.out.write(location_add_template.render())
 
 class ReviewHandler(webapp2.RequestHandler):
     def get(self):
@@ -149,6 +161,9 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/searchresult', SearchHandler),
     ('/location', LocationHandler),
+    ('/location/add', AddLocationHandler),
+    #('/items/add', AddItemHandler),
+    #('/bins/add', AddBinHandler),
     ('/reviews', ReviewHandler),
     ('/aboutus', AboutUsHandler),
     ], debug=False)
