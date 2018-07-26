@@ -128,9 +128,9 @@ function geocodingCallback(results, status){
 
   var location={
     location: re,
-    radius: "500",
+    // radius: "500",
     query: "recycling, compost, e waste",
-    // rankby: "distance";
+    rankby: "distance",
   };
   searchMap.textSearch(location, searchCallback);
   // for(let p = 0; p < location['query'].length; p++){
