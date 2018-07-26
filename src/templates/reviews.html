@@ -104,9 +104,77 @@
       </div>
     </form>
   </div>
-    <h1>What other people are saying:</h1>
-    {% for i in reviews %}
-    <h1>{{ i.first_name }} {{ i.last_name }} on {{ i.date }}</h1>
-    <blockquote><pre>{{ i.message }}</pre></blockquote>
-    {% endfor %}
+    <h3>User reviews:</h3>
+
+  <span class="heading">User Rating</span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star"></span>
+  <p>4.1 average based on 254 reviews.</p>
+  <hr style="border:3px solid #f1f1f1">
+
+  <div class="row">
+    <div class="side">
+      <div style="margin-left: 20px;">5 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-5"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div style="margin-right: 20px;">150</div>
+    </div>
+    <div class="side">
+      <div style="margin-left: 20px;">4 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-4"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div style="margin-right: 20px;">63</div>
+    </div>
+    <div class="side">
+      <div style="margin-left: 20px;">3 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-3"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div style="margin-right: 20px;">15</div>
+    </div>
+    <div class="side">
+      <div style="margin-left: 20px;">2 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-2"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div style="margin-right: 20px;">6</div>
+    </div>
+    <div class="side">
+      <div style="margin-left: 20px;">1 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-1"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div style="margin-right: 20px; margin-bottom: 80px;">20</div>
+    </div>
+  </div>
+  {% for i in reviews %}
+  <p style="font-weight: bold; margin: 0 0 10px 0; font-size: 30px;">{{ i.first_name }} {{ i.last_name }}</p>
+    <p style="margin: 0 0 0 20px; font-size: 10pt;">{{ i.date }}</p>
+  <blockquote><pre><p> >> {{ i.message }}</p></pre></blockquote>
+  {% endfor %}
 </html>
