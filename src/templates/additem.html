@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Snap-Cycle</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/js/additem.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <style>
+    body{
+      background-color: url("https://media.gettyimages.com/photos/bamboo-leaf-and-soft-green-bokeh-background-picture-id543804586?b=1&k=6&m=543804586&s=612x612&w=0&h=ip1ipjrSxcg9C4UdNCkbZg_MaCWpE_DyK-DdJESn2PQ=");
+    }
+    </style> -->
+</head>
+<body>
+    <div class="header">
+        <div id="banner"><img src="https://pbs.twimg.com/media/Di_BMy5UwAAJf3q.jpg" style="margin-bottom: 6px;"></div>
+        <!-- <img src='/css/snapcycle.jpg'> -->
+        <!-- <img id="logo" src="/css/snapcycle.jpg">  -->
+    </div>
+    <ul class="topnav" id="navbar" style="margin-top: 0px; margin-bottom: 0px; line-height: 1.2; font-family: times;">
+        <li><a href="/" href="javascript:void(0)">Home</a></li>
+        <li><a href="/location" href="javascript:void(0)">Locations</a></li>
+        <li><a href="/reviews" href="javascript:void(0)">Review</a></li>
+        <li><a class="active" href="/aboutus" href="javascript:void(0)">About Us</a></li>
+
+
+
+
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </ul>
+
+    <form method="post">
+        Item Name: <br />
+        <input required type="text" name="name" /><br />
+        Item Image URL: <br />
+        <input required type="text" name="image" /><br />
+        Locations: <br />
+        <select id="js_locations" required name="locations_list">
+            {% for i in locationsList %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <button id="js_location_add" type="button">Add Location</button><button type="button" id="js_location_remove">Remove Selected Locations</button><br />
+        <list><ul id="js_location_list"></ul></list><br />
+
+        Bins: <br />
+        <select id="js_bins" required name="bins_list">
+            {% for i in binsList %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="button" id="js_bin_add">Add Bin</button><button type="button" id="js_bin_remove">Remove Selected Bins</button><br />
+        <list><ul id="js_bin_list"></ul></list><br />
+        <input hidden required id="submit_locations" type="text" name="locations" />
+        <input hidden id="submit_bins" required type="text" name="bins" />
+        <input type="submit" />
+    </form>
+</body>
+</html>
