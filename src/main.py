@@ -78,12 +78,10 @@ class SearchHandler(webapp2.RequestHandler):
         # self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/index.html")
         self.response.out.write(search_template.render())
-
     def post(self):
         self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/searchresults.html")
         search = self.request.get('search')
-
         user_input = {
             'search': search.upper(),
         }
