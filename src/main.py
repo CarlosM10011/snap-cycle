@@ -2,12 +2,28 @@
 import webapp2
 import os
 import jinja2
-from models import Person, Review, ndb
+from models import Person, Review, ndb, Address
+
+def getAddressObject(address_1, address_2, city, state, zip):
+    queryObj1 = None
+    obj = None
+    queryObj1 = Address.query(Address.state == state)
+    if queryObj1.get():
+        queryObj2 = queryObj1.filter(Address.city == city)
+        queryObj3 = queryObj2.filter(Address.city == city)
+        queryObj4 = queryObj3.filter(Address.zip == int(zip))
+        queryObj5 = queryObj4.filter(Address.zip == zip)
+        obj = queryObj5.filter(Address.address1 == address_1).get()
+    return obj
 
 def getPersonObjectByName(first_name, last_name):
     queryObj = Person.query(Person.lastName == last_name)
     obj = queryObj.filter(Person.firstName == first_name).get()
     obj = Person.query(Person.firstName == first_name, Person.lastName == last_name).get()
+    return obj
+
+def getPersonObjectByEmail(email_address):
+    obj = Person.query(Person.email == email_address).get()
     return obj
 
 def getPersonObjectByEmail(email_address):
@@ -62,12 +78,10 @@ class SearchHandler(webapp2.RequestHandler):
         # self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/index.html")
         self.response.out.write(search_template.render())
-
     def post(self):
         self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/searchresults.html")
         search = self.request.get('search')
-
         user_input = {
             'search': search.upper(),
         }
