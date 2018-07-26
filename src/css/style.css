@@ -74,7 +74,7 @@ label {
     background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
     /* Set a specific height */
-    min-height: 600px;
+    min-height: 400px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -85,7 +85,9 @@ label {
 
 .parallax2 {
     /* The image used */
-    background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/23/15/49/bundle-1853667_1280.jpg");
+     /* https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg */
+
 
     /* Set a specific height */
     min-height: 400px;
@@ -97,15 +99,15 @@ label {
     background-size: cover;
 }
 
-.parallax3 {
+/*.parallax3 {
     /* The image used */
-    background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
+    /*background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2016/08/PAFF_042417_motivatingecobehavior-609x419.jpg");
 
     /* Set a specific height */
-    min-height: 200px;
+    /*min-height: 200px;
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    /*background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
