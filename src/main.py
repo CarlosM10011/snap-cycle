@@ -197,15 +197,16 @@ class SearchHandler(webapp2.RequestHandler):
 
         print(word)
         if word in recycling:
-            ret['pic'] = "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f7e0a66cba220611e4b926593b3b795f&auto=format&fit=crop&w=800&q=60"
+            ret['pic'] = "https://tcagenda.com/wp-content/uploads/2018/02/know-recycling.jpg"
             ret['word'] = "Recycling: "
             ret['word2'] = "The item you have entered is Recyclable. By correctly disposing of the product, you are making a difference in our ecosystem. Recycling is the first step towards a better world. To locate local Recycling sites, please enter your zip code below."
         elif word in compost:
-            ret['pic'] = "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d74cf1088e47e1007c800942ec97a31&auto=format&fit=crop&w=800&q=60"
+            ret['pic'] = "https://www.oregonmetro.gov/sites/default/files/styles/content/public/2014/05/16/compost_methods_food_scraps.jpg?itok=O6Um6eRe"
+            #ret['pic'] = "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d74cf1088e47e1007c800942ec97a31&auto=format&fit=crop&w=800&q=60"
             ret['word'] = "Compost: "
             ret['word2'] = "The item you have entered is Compostable. This means that if you are growing your own garden you can dispose of it by leaving it slightly buried with your plants. Even if you lack a garden you could leave it on your yard and the grass will be able to absorb nutrients from it. If your would like to locate local Compost sites, please go to our 'Location' page and enter your zip code."
         elif word in ewaste:
-            ret['pic'] = "https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9028dd6de93ea441c4fa84efb852bcf9&auto=format&fit=crop&w=800&q=60"
+            ret['pic'] = "https://www.goevergreenllc.com/wp-content/uploads/2017/03/Batteries.jpg"
             ret['word'] = "E-Waste: "
             ret['word2'] = "The item you have entered is a Recyclable Electronic. Dispose of this head to your local electronic recycling facility and they will be able to reuse your item. Do not throw this item in the trash since this could be bad for waste disposal system. To locate local E Waste sites, please go to our 'Location' page and enter your zip code."
         else:
