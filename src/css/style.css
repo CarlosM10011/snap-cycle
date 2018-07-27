@@ -7,6 +7,7 @@ body {
   /* background-color: #dadbd9; */
   /* font-family: monospace; */
   font-size: 20pt;
+  font-family: 'Hind', sans-serif;
 }
 
 ul {
@@ -89,7 +90,7 @@ label {
     background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
     /* Set a specific height */
-    min-height: 100px;
+    min-height: 300px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
