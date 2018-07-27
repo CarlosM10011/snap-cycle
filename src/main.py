@@ -196,11 +196,11 @@ class SearchHandler(webapp2.RequestHandler):
         #     i.lower()
 
         print(word)
-        if word in compost:
+        if word in recycling:
             ret['pic'] = "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f7e0a66cba220611e4b926593b3b795f&auto=format&fit=crop&w=800&q=60"
             ret['word'] = "Recycling: "
             ret['word2'] = "The item you have entered is Recyclable. By correctly disposing of the product, you are making a difference in our ecosystem. Recycling is the first step towards a better world. To locate local Recycling sites, please enter your zip code below."
-        elif word in recycling:
+        elif word in compost:
             ret['pic'] = "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d74cf1088e47e1007c800942ec97a31&auto=format&fit=crop&w=800&q=60"
             ret['word'] = "Compost: "
             ret['word2'] = "The item you have entered is Compostable. This means that if you are growing your own garden you can dispose of it by leaving it slightly buried with your plants. Even if you lack a garden you could leave it on your yard and the grass will be able to absorb nutrients from it. If your would like to locate local Compost sites, please go to our 'Location' page and enter your zip code."

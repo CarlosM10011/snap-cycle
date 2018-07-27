@@ -68,7 +68,7 @@ Milkcartons
 Milkjugs
 Water
 Sodacontainers
-Shampoo
+ShampooBottles
 Soap
 Detergentbottles
 Plastic
@@ -76,3 +76,14 @@ Bottles
 Cups
 Paper
 glass
+foil
+tin
+aluminum
+plasticjug
+plastictub
+plasticcontainer
+carton
+Can
+fruitcontainer
+beerbottles
+beercans

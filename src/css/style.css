@@ -84,6 +84,21 @@ label {
     margin: 0 20px 0 20px;
 }
 
+.parallax {
+    /* The image used */
+    background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+
+    /* Set a specific height */
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 20px 0 20px;
+}
+
 .column {
     float: left;
     width: 50%;

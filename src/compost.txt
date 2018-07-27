@@ -298,4 +298,7 @@ Gur
 ashes
 Woodchips
 Hay
-Straw
+GreenwareStraw
+Greenwarecups
+leftovers
+spaghetti
