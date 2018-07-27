@@ -204,13 +204,13 @@ class SearchHandler(webapp2.RequestHandler):
             ret['pic'] = "https://www.oregonmetro.gov/sites/default/files/styles/content/public/2014/05/16/compost_methods_food_scraps.jpg?itok=O6Um6eRe"
             #ret['pic'] = "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d74cf1088e47e1007c800942ec97a31&auto=format&fit=crop&w=800&q=60"
             ret['word'] = "Compost: "
-            ret['word2'] = "The item you have entered is Compostable. This means that if you are growing your own garden you can dispose of it by leaving it slightly buried with your plants. Even if you lack a garden you could leave it on your yard and the grass will be able to absorb nutrients from it. If your would like to locate local Compost sites, please go to our 'Location' page and enter your zip code."
+            ret['word2'] = "The item you have entered is Compostable. This means that if you are growing your own garden you can dispose of it by leaving it slightly buried with your plants. Even if you lack a garden you could leave it on your yard and the grass will be able to absorb nutrients from it. If your would like to locate local Compost sites, please enter your zip code below."
         elif word in ewaste:
             ret['pic'] = "https://www.goevergreenllc.com/wp-content/uploads/2017/03/Batteries.jpg"
             ret['word'] = "E-Waste: "
-            ret['word2'] = "The item you have entered is a Recyclable Electronic. Dispose of this head to your local electronic recycling facility and they will be able to reuse your item. Do not throw this item in the trash since this could be bad for waste disposal system. To locate local E Waste sites, please go to our 'Location' page and enter your zip code."
+            ret['word2'] = "The item you have entered is a Recyclable Electronic. Dispose of this head to your local electronic recycling facility and they will be able to reuse your item. Do not throw this item in the trash since this could be bad for waste disposal system. To locate local E Waste sites, please enter your zip code below."
         else:
-            ret['pic'] = "https://images.unsplash.com/photo-1493852303730-955ff798ba12?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0a3aa0e3ad08c0fb0691593c7c74b71&auto=format&fit=crop&w=800&q=60"
+            ret['pic'] = "https://d1nlfd9mjn1pae.cloudfront.net/wp-content/uploads/2016/04/1496946239error.jpg"
             ret['word'] = "Error:"
             ret['word2'] = "The item you have entered could not be found in our database. Please ensure that you have not misspelled the item. Contact us at safecycle1@gmail.com and we will include this item in our database. "
 
