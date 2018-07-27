@@ -2,7 +2,20 @@
 import webapp2
 import os
 import jinja2
-from models import Person, Review, ndb, Address
+from models import Person, Review, ndb, Address, Item, City, Bin
+
+def getAddressObjectList():
+    # Do query.
+    objects = Address.query().fetch()
+    return objects
+
+def renderAllAddresses():
+    # query first:
+    list = getAddressObjectList()
+    returnList = []
+    for i in list:
+        returnList.append({"name": i.address1 + " " + i.city + ", " + i.state + ", " + str(i.zip), "id": i.key})
+    return returnList
 
 # class UserSearch(ndb.Model):
 #     term = ndb.StringProperty(required=False)
@@ -20,7 +33,7 @@ def getAddressObject(address_1, address_2, city, state, zip):
         queryObj2 = queryObj1.filter(Address.city == city)
         queryObj3 = queryObj2.filter(Address.city == city)
         queryObj4 = queryObj3.filter(Address.zip == int(zip))
-        queryObj5 = queryObj4.filter(Address.zip == zip)
+        queryObj5 = queryObj4.filter(Address.zip == int(zip))
         obj = queryObj5.filter(Address.address1 == address_1).get()
     return obj
 
@@ -176,6 +189,27 @@ class AddLocationHandler(webapp2.RequestHandler):
         location_add_template = jinja_env.get_template("templates/addlocation.html")
         self.response.out.write(location_add_template.render())
 
+class AddItemHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        item_add_template = jinja_env.get_template("templates/additem.html")
+        self.response.out.write(item_add_template.render({"locationsList": renderAllAddresses(), "binsList": [{"name": "Nashville; Plastics", "id": 22}]}))
+    def post(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        address = None
+        if not getAddressObject(self.request.get("address1").lower(), self.request.get("address2").lower(), self.request.get("city").lower(), self.request.get("state").lower(), self.request.get("zip")):
+            address = Address()
+            address.address1 = self.request.get("address1").lower()
+            address.address2 = self.request.get("address2").lower()
+            address.city = self.request.get("city").lower()
+            address.state = self.request.get("state").lower()
+            if self.request.get("zip")!="": address.zip = int(self.request.get("zip"))
+            address.put()
+        else:
+            pass
+        location_add_template = jinja_env.get_template("templates/addlocation.html")
+        self.response.out.write(location_add_template.render())
+
 class ReviewHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -224,7 +258,7 @@ app = webapp2.WSGIApplication([
     ('/searchresult', SearchHandler),
     ('/location', LocationHandler),
     ('/location/add', AddLocationHandler),
-    #('/items/add', AddItemHandler),
+    ('/items/add', AddItemHandler),
     #('/bins/add', AddBinHandler),
     ('/reviews', ReviewHandler),
     ('/aboutus', AboutUsHandler),
