@@ -54,3 +54,5 @@ Wiring
 BoomBoxes
 AutomotiveElectronics
 AnsweringMachines
+battery
+Batteries

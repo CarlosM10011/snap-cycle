@@ -27,13 +27,8 @@
       <li><a href="/aboutus" href="javascript:void(0)">About Us</a></li>
 
       <div class="search-container">
-<<<<<<< HEAD
       <form method="POST" action="/searchresult">
-        <input type="text" placeholder="Search.." name="search">
-=======
-      <form action="/action_page.php">
         <input type="text" placeholder="Search for item . ." name="search">
->>>>>>> 382ddfa99f282432f48713031a21eac222d1805c
         <button id="search_button" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
@@ -109,15 +104,15 @@
       </div>
     </form>
   </div>
-    <h3 style="color: green;">User reviews:</h3>
+    <h3 style="color: green;">User Reviews:</h3>
 
-  <span class="heading">User Rating</span>
+  <span class="heading" style="margin-left: 10px;">User Rating</span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
-  <span class="fa fa-star"></span>
-  <p>{{ mean }} average based on {{ totalReviews }} reviews.</p>
+  <span class="fa fa-star checked"></span>
+  <p style="margin-left: 10px;">{{ mean }} average based on {{ totalReviews }} reviews.</p>
   <hr style="border:3px solid #f1f1f1">
 
   <div class="row">
@@ -177,9 +172,42 @@
       <div style="margin-right: 20px; margin-bottom: 80px;">{{ oneStar }}</div>
     </div>
   </div>
+<!--
+  <div class="container">
+  <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+  <p>Hello. How are you today?</p>
+  <span class="time-right">11:00</span>
+</div>
+
+<div class="container darker">
+  <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9017084ac611b76fb7506ccc54d854ac&auto=format&fit=crop&w=800&q=60" alt="Avatar" class="right" style="width:100%;">
+  <p>Hey! I'm fine. Thanks for asking!</p>
+  <span class="time-left">11:01</span>
+</div>
+
+<div class="container">
+  <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>
+
+  <div class="container darker">
+    <img src="/w3images/avatar_g2.jpg" alt="Avatar" style="width:100%;">
+    <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+    <span class="time-left">11:05</span>
+  </div>
+ -->
+
+  <h3 style="color: green;">Comments:</h3>
   {% for i in reviews %}
-  <p style="font-weight: bold; margin: 0 0 10px 0; font-size: 30px;">{{ i.first_name }} {{ i.last_name }}</p>
+  <div class="review">
+    <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9017084ac611b76fb7506ccc54d854ac&auto=format&fit=crop&w=800&q=60" alt="Avatar" class="right" style="width:100%;">
+    <p style="font-weight: bold; margin: 0 0 0 10px; font-size: 30px;">{{ i.first_name }} {{ i.last_name }}</p>
+    <p style=" margin-top: 20px;">{{i.message}}</p>
+    <span class="time-right">{{i.date}}</span>
+  </div>
+  <!-- <p style="font-weight: bold; margin: 0 0 0 10px; font-size: 30px;">{{ i.first_name }} {{ i.last_name }}</p>
     <p style="margin: 0 0 0 20px; font-size: 10pt;">{{ i.date }}</p>
-  <blockquote><pre><p> >> {{ i.message }}</p></pre></blockquote>
+  <blockquote><pre><p> >> {{ i.message }}</p></pre></blockquote> -->
   {% endfor %}
 </html>
