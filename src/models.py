@@ -32,6 +32,6 @@ class City(ndb.Model):
 
 class Bin(ndb.Model):
     name = ndb.StringProperty()
-    color = ndb.StringProperty()
+    image = ndb.StringProperty()
     sortingInstructions = ndb.StringProperty()
     

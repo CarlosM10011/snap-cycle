@@ -43,6 +43,19 @@ def getPersonObjectByName(first_name, last_name):
     obj = Person.query(Person.firstName == first_name, Person.lastName == last_name).get()
     return obj
 
+def getCityObjectByName(name):
+    obj = City.query(City.name == name).get()
+    return obj
+
+@ndb.transactional
+def getBinObjectByName(parent_key, name):
+    obj = City.query(City.name == name, ancestor=parent_key).get()
+    return obj
+
+@ndb.transactional
+def putBinObject(obj):
+    return obj.put()
+
 def getPersonObjectByEmail(email_address):
     obj = Person.query(Person.email == email_address).get()
     return obj
@@ -73,6 +86,41 @@ def getPersonObjectList():
     return Person.query().fetch()
 
 def renderAllReviews():
+    # First: get a list of all reviews:
+    reviews = listAllReviews()
+    # Okay we have a list; now let's calculate the total number.
+    totalReviews = len(reviews)
+    # Okay Now let's calculate how many reviews individually:
+    oneStar = 0
+    twoStar = 0
+    threeStar = 0
+    fourStar = 0
+    fiveStar = 0
+    for i in reviews:
+        if i["rating"] == 1: oneStar = oneStar + 1
+        elif i["rating"] == 2: twoStar = twoStar + 1
+        elif i["rating"] == 3: threeStar = threeStar + 1
+        elif i["rating"] == 4: fourStar = fourStar + 1
+        elif i["rating"]== 5: fiveStar = fiveStar + 1
+    # Great! we now should have the individual reviews.
+    # Now let's see if we can calculate the mean reviews:
+    if totalReviews!=0: # divide by 0
+        meanReviews = ((1*oneStar)+(2*twoStar)+(3*threeStar)+(4*fourStar)+(5*fiveStar))/float(totalReviews)
+    else:
+        meanReviews = 0.0
+    # Great! Now let's add these values to a dictionary:
+    returnDict = {
+        "reviews": reviews,
+        "oneStar": oneStar,
+        "twoStar": twoStar,
+        "threeStar": threeStar,
+        "fourStar": fourStar,
+        "fiveStar": fiveStar,
+        "mean": meanReviews,
+        "totalReviews": totalReviews}
+    return returnDict
+    
+def listAllReviews():
     # this will return a list with all the reviews for jinja to render.
     finalArray = []
     # first thing's first: we need a list of people:
@@ -190,32 +238,37 @@ class AddLocationHandler(webapp2.RequestHandler):
         location_add_template = jinja_env.get_template("templates/addlocation.html")
         self.response.out.write(location_add_template.render())
 
-class AddItemHandler(webapp2.RequestHandler):
+class AddBinHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        item_add_template = jinja_env.get_template("templates/additem.html")
-        self.response.out.write(item_add_template.render({"locationsList": renderAllAddresses(), "binsList": [{"name": "Nashville; Plastics", "id": 22}]}))
+        bin_add_template = jinja_env.get_template("templates/addbin.html")
+        self.response.out.write(bin_add_template.render())
     def post(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        address = None
-        if not getAddressObject(self.request.get("address1").lower(), self.request.get("address2").lower(), self.request.get("city").lower(), self.request.get("state").lower(), self.request.get("zip")):
-            address = Address()
-            address.address1 = self.request.get("address1").lower()
-            address.address2 = self.request.get("address2").lower()
-            address.city = self.request.get("city").lower()
-            address.state = self.request.get("state").lower()
-            if self.request.get("zip")!="": address.zip = int(self.request.get("zip"))
-            address.put()
+        city = None
+        if self.request.get("city").lower()!="":
+            if not getCityObjectByName(self.request.get("city").lower()):
+                city = City()
+                city.name = self.request.get("city").lower()
+                city.put()
+            else:
+                city = getCityObjectByName(self.request.get("city").lower())
+            bin = None
+            if not getBinObjectByName(city.key, self.request.get("bin_name").lower()):
+                bin = Bin(parent=city.key)
+                bin.name = self.request.get("bin_name").lower()
+                bin.image = self.request.get("image").lower()
+                bin.sortingInstructions = self.request.get("sorting_instructions")
+                putBinObject(bin)
         else:
             pass
-        location_add_template = jinja_env.get_template("templates/addlocation.html")
-        self.response.out.write(location_add_template.render())
+        bin_add_template = jinja_env.get_template("templates/addbin.html")
+        self.response.out.write(bin_add_template.render())
 
 class ReviewHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         review_template = jinja_env.get_template("templates/reviews.html")
-        self.response.out.write(review_template.render(reviews=renderAllReviews()))
+        self.response.out.write(review_template.render(renderAllReviews()))
     def post(self):
         person = None
         if self.request.get("email").lower()!="":
@@ -239,7 +292,7 @@ class ReviewHandler(webapp2.RequestHandler):
             pass
         review_template = jinja_env.get_template("templates/reviews.html")
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.out.write(review_template.render(reviews=renderAllReviews()))
+        self.response.out.write(review_template.render(renderAllReviews()))
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
@@ -259,8 +312,8 @@ app = webapp2.WSGIApplication([
     ('/searchresult', SearchHandler),
     ('/location', LocationHandler),
     ('/location/add', AddLocationHandler),
-    ('/items/add', AddItemHandler),
-    #('/bins/add', AddBinHandler),
+    #('/items/add', AddItemHandler),
+    ('/bins/add', AddBinHandler),
     ('/reviews', ReviewHandler),
     ('/aboutus', AboutUsHandler),
     ], debug=False)
