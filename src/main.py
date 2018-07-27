@@ -99,6 +99,7 @@ class SearchHandler(webapp2.RequestHandler):
         print("Welcome")
         # self.response.headers['Content-Type'] = 'text/html'
         search_template = jinja_env.get_template("templates/index.html")
+        # a = jinja_env.get_template("templates/reviews.html")
         self.response.out.write(search_template.render())
 
     def post(self):
