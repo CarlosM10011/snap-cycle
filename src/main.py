@@ -86,6 +86,41 @@ def getPersonObjectList():
     return Person.query().fetch()
 
 def renderAllReviews():
+    # First: get a list of all reviews:
+    reviews = listAllReviews()
+    # Okay we have a list; now let's calculate the total number.
+    totalReviews = len(reviews)
+    # Okay Now let's calculate how many reviews individually:
+    oneStar = 0
+    twoStar = 0
+    threeStar = 0
+    fourStar = 0
+    fiveStar = 0
+    for i in reviews:
+        if i["rating"] == 1: oneStar = oneStar + 1
+        elif i["rating"] == 2: twoStar = twoStar + 1
+        elif i["rating"] == 3: threeStar = threeStar + 1
+        elif i["rating"] == 4: fourStar = fourStar + 1
+        elif i["rating"]== 5: fiveStar = fiveStar + 1
+    # Great! we now should have the individual reviews.
+    # Now let's see if we can calculate the mean reviews:
+    if totalReviews!=0: # divide by 0
+        meanReviews = ((1*oneStar)+(2*twoStar)+(3*threeStar)+(4*fourStar)+(5*fiveStar))/float(totalReviews)
+    else:
+        meanReviews = 0.0
+    # Great! Now let's add these values to a dictionary:
+    returnDict = {
+        "reviews": reviews,
+        "oneStar": oneStar,
+        "twoStar": twoStar,
+        "threeStar": threeStar,
+        "fourStar": fourStar,
+        "fiveStar": fiveStar,
+        "mean": meanReviews,
+        "totalReviews": totalReviews}
+    return returnDict
+    
+def listAllReviews():
     # this will return a list with all the reviews for jinja to render.
     finalArray = []
     # first thing's first: we need a list of people:
@@ -232,7 +267,7 @@ class ReviewHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         review_template = jinja_env.get_template("templates/reviews.html")
-        self.response.out.write(review_template.render(reviews=renderAllReviews()))
+        self.response.out.write(review_template.render(renderAllReviews()))
     def post(self):
         person = None
         if self.request.get("email").lower()!="":
@@ -256,7 +291,7 @@ class ReviewHandler(webapp2.RequestHandler):
             pass
         review_template = jinja_env.get_template("templates/reviews.html")
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.out.write(review_template.render(reviews=renderAllReviews()))
+        self.response.out.write(review_template.render(renderAllReviews()))
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):

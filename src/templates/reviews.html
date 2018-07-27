@@ -112,7 +112,7 @@
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star"></span>
-  <p>4.1 average based on 254 reviews.</p>
+  <p>{{ mean }} average based on {{ totalReviews }} reviews.</p>
   <hr style="border:3px solid #f1f1f1">
 
   <div class="row">
@@ -125,7 +125,7 @@
       </div>
     </div>
     <div class="side right">
-      <div style="margin-right: 20px;">150</div>
+      <div style="margin-right: 20px;">{{ fiveStar }}</div>
     </div>
     <div class="side">
       <div style="margin-left: 20px;">4 star</div>
@@ -136,7 +136,7 @@
       </div>
     </div>
     <div class="side right">
-      <div style="margin-right: 20px;">63</div>
+      <div style="margin-right: 20px;">{{ fourStar }}</div>
     </div>
     <div class="side">
       <div style="margin-left: 20px;">3 star</div>
@@ -147,7 +147,7 @@
       </div>
     </div>
     <div class="side right">
-      <div style="margin-right: 20px;">15</div>
+      <div style="margin-right: 20px;">{{ threeStar }}</div>
     </div>
     <div class="side">
       <div style="margin-left: 20px;">2 star</div>
@@ -158,7 +158,7 @@
       </div>
     </div>
     <div class="side right">
-      <div style="margin-right: 20px;">6</div>
+      <div style="margin-right: 20px;">{{ twoStar }}</div>
     </div>
     <div class="side">
       <div style="margin-left: 20px;">1 star</div>
@@ -169,7 +169,7 @@
       </div>
     </div>
     <div class="side right">
-      <div style="margin-right: 20px; margin-bottom: 80px;">20</div>
+      <div style="margin-right: 20px; margin-bottom: 80px;">{{ oneStar }}</div>
     </div>
   </div>
   {% for i in reviews %}
