@@ -56,3 +56,8 @@ AutomotiveElectronics
 AnsweringMachines
 battery
 Batteries
+usb
+computers
+Computer
+TV
+SamsungTV

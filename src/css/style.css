@@ -75,7 +75,7 @@ label {
     background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
     /* Set a specific height */
-    min-height: 700px;
+    min-height: 500px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -90,7 +90,7 @@ label {
     background-image: url("https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
     /* Set a specific height */
-    min-height: 300px;
+    min-height: 500px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -104,7 +104,7 @@ label {
     float: left;
     width: 50%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    /*height: 300px;*/ /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
